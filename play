@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#remove previous .class files
+rm *.class
+
+#compiling all .java files
+javac *.java
+
+#executing Main.java
+java Main
