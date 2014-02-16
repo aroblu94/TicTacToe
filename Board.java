@@ -69,79 +69,13 @@ public class Board {
 	 * quando trova un vincitore => winner = true
 	 * e la partita finisce
 	 */
-	public void trisRiga() { //controllo che ci sia il "tris" in riga
+	public void trisColonna() { //controllo che ci sia il "tris" in colonna
 		h = 0;
 		k = 0;
 		winner = false;
 
 		int y = 0;	//controllo sulla riga in alto
 		for (int x = 0; x < rows; x++) {
-			if(board[x][y] == "X") {
-				h++;
-				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
-					winner = true;
-				}
-			}
-			else if(board[x][y] == "O") {
-				k++;
-				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
-					winner = true;
-				}
-			}
-		}
-		k = 0;
-		h = 0;
-
-		y = 1;	//controllo sulla riga centrale
-		for (int x = 0; x < rows; x++) {
-			if(board[x][y] == "X") {
-				h++;
-				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
-					winner = true;
-				}
-			}
-			else if(board[x][y] == "O") {
-				k++;
-				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
-					winner = true;
-				}
-			}
-		}
-		k = 0;
-		h = 0;
-
-		y = 2;	//controllo sull'ultima riga
-		for (int x = 0; x < rows; x++) {
-			if(board[x][y] == "X") {
-				h++;
-				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
-					winner = true;
-				}
-			}
-			else if(board[x][y] == "O") {
-				k++;
-				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
-					winner = true;
-				}
-			}
-		}
-		k = 0;
-		h = 0;
-	}
-
-	public void trisColonna() { //controllo che ci sia il "tris" in colonna
-		h = 0;
-		k = 0;
-		winner = false;
-
-		int x = 0; //controllo colonna sinistra
-		for (int y = 0; y < columns; y++) {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
@@ -153,6 +87,72 @@ public class Board {
 				k++;
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					winner = true;
+				}
+			}
+		}
+		k = 0;
+		h = 0;
+
+		y = 1;	//controllo sulla colonna centrale
+		for (int x = 0; x < rows; x++) {
+			if(board[x][y] == "X") {
+				h++;
+				if(h == 3) {
+					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					winner = true;
+				}
+			}
+			else if(board[x][y] == "O") {
+				k++;
+				if(k == 3) {
+					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					winner = true;
+				}
+			}
+		}
+		k = 0;
+		h = 0;
+
+		y = 2;	//controllo sull'ultima colonna
+		for (int x = 0; x < rows; x++) {
+			if(board[x][y] == "X") {
+				h++;
+				if(h == 3) {
+					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					winner = true;
+				}
+			}
+			else if(board[x][y] == "O") {
+				k++;
+				if(k == 3) {
+					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					winner = true;
+				}
+			}
+		}
+		k = 0;
+		h = 0;
+	}
+
+	public void trisRiga() { //controllo che ci sia il "tris" in riga
+		h = 0;
+		k = 0;
+		winner = false;
+
+		int x = 0; //controllo riga sinistra
+		for (int y = 0; y < columns; y++) {
+			if(board[x][y] == "X") {
+				h++;
+				if(h == 3) {
+					System.out.println("VINCE IL GIOCATORE X (riga)");
+					winner = true;
+				}
+			}
+			else if(board[x][y] == "O") {
+				k++;
+				if(k == 3) {
+					System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
 				}
 			}
@@ -165,14 +165,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
 				}
 			}
@@ -180,19 +180,19 @@ public class Board {
 		k = 0;
 		h = 0;
 
-		x = 2; //controllo colonna destra
+		x = 2; //controllo riga destra
 		for (int y = 0; y < columns; y++) {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
 				}
 			}
