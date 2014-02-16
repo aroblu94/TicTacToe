@@ -238,23 +238,47 @@ public class Board {
 		 *  X
 		 * X
 		 */
-		for (int x = 2; x >= 0; x--) {
-			int y = x;
-			if(board[x][y] == "X") {
-				h++;
-				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X ");
-					winner = true;
+		/*for (int x = 2; x >= 0; x--) {
+			for(int y = 0; y < columns; y++) {
+				if(board[x][y] == "X") {
+					h++;
+					if(h == 3) {
+						System.out.println("VINCE IL GIOCATORE X (diagonale contrario)");
+						winner = true;
+					}
+				}
+				else if(board[x][y] == "O") {
+					k++;
+					if(k == 3) {
+						System.out.println("VINCE IL GIOCATORE O (diagonale contrario)");
+						winner = true;
+					}
 				}
 			}
-			else if(board[x][y] == "O") {
-				k++;
-				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O ");
-					winner = true;
-				}
-			}
+		}*/
+		if(board[2][0] == "X")
+			h++;
+		else if(board[2][0] == "O")
+			k++;
+		if(board[1][1] == "X")
+			h++;
+		else if(board[1][1] == "O")
+			k++;
+		if(board[0][2] == "X")
+			h++;
+		else if(board[0][2] == "O")
+			k++;
+
+		if(h == 3) {
+			System.out.println("VINCE IL GIOCATORE X (diagonale contrario)");
+			winner = true;
 		}
+
+		if(k == 3) {
+			System.out.println("VINCE IL GIOCATORE O (diagonale contrario)");
+			winner = true;
+		}
+
 		k = 0;
 		h = 0;	
 	}
