@@ -79,14 +79,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
+					System.out.println("VINCE IL GIOCATORE X ");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
+					System.out.println("VINCE IL GIOCATORE O ");
 					winner = true;
 				}
 			}
@@ -99,14 +99,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
+					System.out.println("VINCE IL GIOCATORE X ");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
+					System.out.println("VINCE IL GIOCATORE O ");
 					winner = true;
 				}
 			}
@@ -119,14 +119,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
+					System.out.println("VINCE IL GIOCATORE X ");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
+					System.out.println("VINCE IL GIOCATORE O ");
 					winner = true;
 				}
 			}
@@ -145,14 +145,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					System.out.println("VINCE IL GIOCATORE X ");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					System.out.println("VINCE IL GIOCATORE O ");
 					winner = true;
 				}
 			}
@@ -165,14 +165,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					System.out.println("VINCE IL GIOCATORE X ");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					System.out.println("VINCE IL GIOCATORE O ");
 					winner = true;
 				}
 			}
@@ -185,14 +185,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					System.out.println("VINCE IL GIOCATORE X ");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					System.out.println("VINCE IL GIOCATORE O ");
 					winner = true;
 				}
 			}
@@ -217,14 +217,14 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (diagonale)");
+					System.out.println("VINCE IL GIOCATORE X ");
 					winner = true;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (diagonale)");
+					System.out.println("VINCE IL GIOCATORE O ");
 					winner = true;
 				}
 			}
