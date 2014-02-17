@@ -45,8 +45,10 @@ public class Board {
 
 	//controllo che la posizione non sia occupata
 	public boolean Control(int x, int y) {
-		if(board[x][y] != " ")
+		if(board[x][y] != " ") {
 			occupato = true;
+			Gioco.decCounter();
+		}
 		else
 			occupato = false;
 
