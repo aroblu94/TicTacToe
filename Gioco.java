@@ -29,7 +29,7 @@ public class Gioco {
 				counter++; 
 
 				System.out.println();
-				System.out.println(board.toString());
+				System.out.println(board);
 				System.out.println();
 
 				if((counter != 9) && (board.getWinner() == false)) {
@@ -42,30 +42,32 @@ public class Gioco {
 					counter++;
 
 					System.out.println();
-					System.out.println(board.toString());
+					System.out.println(board);
 					System.out.println();
 				
 				}
-				else if((counter == 9) && (board.getWinner() == false)){
+				else {
+					if((counter == 9) && (board.getWinner() == false)){
 						System.out.println();
 						System.out.println("PARTITA TERMINATA IN PARITA'");
-						System.exit(0);
 					}
 					else {
 						board.getWinner();
-						System.exit(0);
 					}
+					System.exit(0);
+				}
 
 			}
-			else if((counter == 9) && (board.getWinner() == false)){
+			else {
+				if((counter == 9) && (board.getWinner() == false)){
 					System.out.println();
 					System.out.println("PARTITA TERMINATA IN PARITA'");
-					System.exit(0);
 				}
 				else {
 					board.getWinner();
-					System.exit(0);
 				}
+				System.exit(0);
+			}
 		}
 	}
 

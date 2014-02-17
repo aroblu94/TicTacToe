@@ -69,7 +69,7 @@ public class Board {
 	 * quando trova un vincitore => winner = true
 	 * e la partita finisce
 	 */
-	public void trisColonna() { //controllo che ci sia il "tris" in colonna
+	public boolean trisColonna() { //controllo che ci sia il "tris" in colonna
 		h = 0;
 		k = 0;
 		winner = false;
@@ -81,6 +81,7 @@ public class Board {
 				if(h == 3) {
 					System.out.println("VINCE IL GIOCATORE X (colonna)");
 					winner = true;
+					break;
 				}
 			}
 			else if(board[x][y] == "O") {
@@ -88,6 +89,7 @@ public class Board {
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (colonna)");
 					winner = true;
+					break;
 				}
 			}
 		}
@@ -101,6 +103,7 @@ public class Board {
 				if(h == 3) {
 					System.out.println("VINCE IL GIOCATORE X (colonna)");
 					winner = true;
+					break;
 				}
 			}
 			else if(board[x][y] == "O") {
@@ -108,6 +111,7 @@ public class Board {
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (colonna)");
 					winner = true;
+					break;
 				}
 			}
 		}
@@ -121,6 +125,7 @@ public class Board {
 				if(h == 3) {
 					System.out.println("VINCE IL GIOCATORE X (colonna)");
 					winner = true;
+					break;
 				}
 			}
 			else if(board[x][y] == "O") {
@@ -128,14 +133,16 @@ public class Board {
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (colonna)");
 					winner = true;
+					break;
 				}
 			}
 		}
 		k = 0;
 		h = 0;
+		return winner;
 	}
 
-	public void trisRiga() { //controllo che ci sia il "tris" in riga
+	public boolean trisRiga() { //controllo che ci sia il "tris" in riga
 		h = 0;
 		k = 0;
 		winner = false;
@@ -147,6 +154,7 @@ public class Board {
 				if(h == 3) {
 					System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
+					break;
 				}
 			}
 			else if(board[x][y] == "O") {
@@ -154,6 +162,7 @@ public class Board {
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
+					break;
 				}
 			}
 		}
@@ -167,6 +176,7 @@ public class Board {
 				if(h == 3) {
 					System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
+					break;
 				}
 			}
 			else if(board[x][y] == "O") {
@@ -174,6 +184,7 @@ public class Board {
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
+					break;
 				}
 			}
 		}
@@ -187,6 +198,7 @@ public class Board {
 				if(h == 3) {
 					System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
+					break;
 				}
 			}
 			else if(board[x][y] == "O") {
@@ -194,14 +206,16 @@ public class Board {
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
+					break;
 				}
 			}
 		}
 		k = 0;
 		h = 0;
+		return winner;
 	}
 
-	public void trisDiagonale() { //controllo che ci sia il "tris" in diagonale
+	public boolean trisDiagonale() { //controllo che ci sia il "tris" in diagonale
 		h = 0;
 		k = 0;
 		winner = false;
@@ -219,6 +233,7 @@ public class Board {
 				if(h == 3) {
 					System.out.println("VINCE IL GIOCATORE X (diagonale)");
 					winner = true;
+					break;
 				}
 			}
 			else if(board[x][y] == "O") {
@@ -226,6 +241,7 @@ public class Board {
 				if(k == 3) {
 					System.out.println("VINCE IL GIOCATORE O (diagonale)");
 					winner = true;
+					break;
 				}
 			}
 		}
@@ -238,24 +254,6 @@ public class Board {
 		 *  X
 		 * X
 		 */
-		/*for (int x = 2; x >= 0; x--) {
-			for(int y = 0; y < columns; y++) {
-				if(board[x][y] == "X") {
-					h++;
-					if(h == 3) {
-						System.out.println("VINCE IL GIOCATORE X (diagonale contrario)");
-						winner = true;
-					}
-				}
-				else if(board[x][y] == "O") {
-					k++;
-					if(k == 3) {
-						System.out.println("VINCE IL GIOCATORE O (diagonale contrario)");
-						winner = true;
-					}
-				}
-			}
-		}*/
 		if(board[2][0] == "X")
 			h++;
 		else if(board[2][0] == "O")
@@ -280,13 +278,19 @@ public class Board {
 		}
 
 		k = 0;
-		h = 0;	
+		h = 0;
+		return winner;	
 	}
 
 	public boolean getWinner() {
-		this.trisRiga();
-		this.trisColonna();
-		this.trisDiagonale();
+		if(this.trisRiga())
+			this.trisRiga();
+		else if(this.trisColonna())
+			this.trisColonna();
+		else if(this.trisDiagonale())
+			this.trisDiagonale();
+		else
+			winner = false;
 		return winner;
 	}
 }
