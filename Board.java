@@ -34,7 +34,7 @@ public class Board {
 			}
 			if(x < rows -1) {
 				s.append("\n");
-				s.append("=====");
+				s.append("------");
 				s.append("\n");
 			}
 
