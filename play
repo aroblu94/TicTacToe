@@ -3,8 +3,5 @@
 #remove previous .class files
 rm *.class
 
-#compiling all .java files
-javac *.java
-
-#executing Main.java
-java Main
+#compiling all .java files, executing Main.java
+javac *.java && java Main
