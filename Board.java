@@ -6,6 +6,8 @@ public class Board {
   	private static final int columns = 3;
   	private static boolean occupato;
   	private static boolean winner;
+  	private static boolean winnerO;
+  	private static boolean winnerX;
   	private static int h, k;
 
 	//COSTRUTTORE
@@ -75,22 +77,26 @@ public class Board {
 		h = 0;
 		k = 0;
 		winner = false;
+		winnerX = false;
+		winnerO = false;
 
 		int y = 0;	//controllo sulla riga in alto
 		for (int x = 0; x < rows; x++) {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					//System.out.println("VINCE IL GIOCATORE X (colonna)");
 					winner = true;
+					winnerX = true;
 					break;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					//System.out.println("VINCE IL GIOCATORE O (colonna)");
 					winner = true;
+					winnerO = true;
 					break;
 				}
 			}
@@ -103,16 +109,18 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					//System.out.println("VINCE IL GIOCATORE X (colonna)");
 					winner = true;
+					winnerX = true;
 					break;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					//System.out.println("VINCE IL GIOCATORE O (colonna)");
 					winner = true;
+					winnerO = true;
 					break;
 				}
 			}
@@ -125,16 +133,18 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (colonna)");
+					//System.out.println("VINCE IL GIOCATORE X (colonna)");
 					winner = true;
+					winnerX = true;
 					break;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (colonna)");
+					//System.out.println("VINCE IL GIOCATORE O (colonna)");
 					winner = true;
+					winnerO = true;
 					break;
 				}
 			}
@@ -148,22 +158,26 @@ public class Board {
 		h = 0;
 		k = 0;
 		winner = false;
+		winnerX = false;
+		winnerO = false;
 
 		int x = 0; //controllo riga sinistra
 		for (int y = 0; y < columns; y++) {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
+					//System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
+					winnerX = true;
 					break;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
+					//System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
+					winnerO = true;
 					break;
 				}
 			}
@@ -176,16 +190,18 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
+					//System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
+					winnerX = true;
 					break;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
+					//System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
+					winnerO = true;
 					break;
 				}
 			}
@@ -198,16 +214,18 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (riga)");
+					//System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
+					winnerX = true;
 					break;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (riga)");
+					//System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
+					winnerO = true;
 					break;
 				}
 			}
@@ -221,6 +239,8 @@ public class Board {
 		h = 0;
 		k = 0;
 		winner = false;
+		winnerX = false;
+		winnerO = false;
 
 		/*
 		 * Controllo che il tris avvenga così:
@@ -233,16 +253,18 @@ public class Board {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					System.out.println("VINCE IL GIOCATORE X (diagonale)");
+					//System.out.println("VINCE IL GIOCATORE X (diagonale)");
 					winner = true;
+					winnerX = true;
 					break;
 				}
 			}
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					System.out.println("VINCE IL GIOCATORE O (diagonale)");
+					//System.out.println("VINCE IL GIOCATORE O (diagonale)");
 					winner = true;
+					winnerO = true;
 					break;
 				}
 			}
@@ -270,12 +292,14 @@ public class Board {
 			k++;
 
 		if(h == 3) {
-			System.out.println("VINCE IL GIOCATORE X (diagonale contrario)");
+			//System.out.println("VINCE IL GIOCATORE X (diagonale contrario)");
+			winnerX = true;
 			winner = true;
 		}
 
 		if(k == 3) {
-			System.out.println("VINCE IL GIOCATORE O (diagonale contrario)");
+			//System.out.println("VINCE IL GIOCATORE O (diagonale contrario)");
+			winnerO = true;
 			winner = true;
 		}
 
@@ -294,5 +318,13 @@ public class Board {
 		else
 			winner = false;
 		return winner;
+	}
+
+	public boolean getWinnerX() {
+		return winnerX;
+	}
+
+	public boolean getWinnerO() {
+		return winnerO;
 	}
 }

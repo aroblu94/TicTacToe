@@ -18,8 +18,8 @@ public class Gioco {
 		counter = 0;
 
 		while(1==1) {
-			if((counter != 9) && (board.getWinner() == false)) { //quando arriva a 9 e non ha vinto nessuno il gioco finisce
-				System.out.println("Gioca il giocatore X. Inserisci le coordinate (x,y) ");
+			if((counter != 9) && (!board.getWinner())) { //quando arriva a 9 e non ha vinto nessuno il gioco finisce
+				System.out.println("Gioca il giocatore X. Inserisci le coordinate (riga,colonna) ");
 				Scanner in = new Scanner(System.in);
 				Scanner token = new Scanner(in.next());
 				token.useDelimiter(",");
@@ -32,8 +32,8 @@ public class Gioco {
 				System.out.println(board);
 				System.out.println();
 
-				if((counter != 9) && (board.getWinner() == false)) {
-					System.out.println("Gioca il giocatore O. Inserisci le coordinate (x,y) ");
+				if((counter != 9) && (!board.getWinner())) {
+					System.out.println("Gioca il giocatore O. Inserisci le coordinate (riga,colonna) ");
 					token = new Scanner(in.next());
 					token.useDelimiter(",");
 					int x2 = Integer.parseInt(token.next());
@@ -47,24 +47,32 @@ public class Gioco {
 				
 				}
 				else {
-					if((counter == 9) && (board.getWinner() == false)){
+					if((counter == 9) && (!board.getWinner())) {
 						System.out.println();
 						System.out.println("PARTITA TERMINATA IN PARITA'");
 					}
 					else {
 						board.getWinner();
+						if(board.getWinnerX())
+							System.out.println("VINCE IL GIOCATORE X");
+						else
+							System.out.println("VINCE IL GIOCATORE O");
 					}
 					System.exit(0);
 				}
 
 			}
 			else {
-				if((counter == 9) && (board.getWinner() == false)){
+				if((counter == 9) && (!board.getWinner())) {
 					System.out.println();
 					System.out.println("PARTITA TERMINATA IN PARITA'");
 				}
 				else {
 					board.getWinner();
+					if(board.getWinnerX())
+						System.out.println("VINCE IL GIOCATORE X");
+					else
+						System.out.println("VINCE IL GIOCATORE O");
 				}
 				System.exit(0);
 			}
