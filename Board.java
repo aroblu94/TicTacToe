@@ -57,12 +57,16 @@ public class Board {
 		return occupato;
 	}
 
-	public void tic(int x, int y, String player) {
-		this.Control(x,y); //controllo posizione
-		if(occupato == false)
-			board[x][y] = player;
-		else
-			System.out.println("Posizione occupata, nessuna mossa effettuata ");
+	public boolean tic(int x, int y, String player) {
+			this.Control(x,y); //controllo posizione
+			if(!occupato) {
+				board[x][y] = player;
+				return true;
+			}
+			else {
+				System.out.println("Posizione occupata, nessuna mossa effettuata. Riprova ");
+				return false;
+			}
 	}
 
 	/*
