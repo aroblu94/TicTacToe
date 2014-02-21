@@ -28,15 +28,15 @@ public class Board {
 		for(int x = 0; x < rows; x++) {
 			for(int y = 0; y<columns; y++) {
 				if (board[x][y] == " ")
-					s.append(" ");
+					s.append("   ");
 				else
-					s.append(board[x][y]);
+					s.append(" " + board[x][y] + " ");
 				if (y < columns -1)
 					s.append("|");
 			}
 			if(x < rows -1) {
 				s.append("\n");
-				s.append("------");
+				s.append("---+---+---");
 				s.append("\n");
 			}
 
@@ -49,7 +49,7 @@ public class Board {
 	public boolean Control(int x, int y) {
 		if(board[x][y] != " ") {
 			occupato = true;
-			Gioco.decCounter();
+			GiocoMulti.decCounter();
 		}
 		else
 			occupato = false;

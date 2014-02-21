@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Gioco {
+public class GiocoMulti {
 
 	//CAMPI
 	private Board board;
@@ -12,7 +12,7 @@ public class Gioco {
 	private static Scanner token;
 
 	//COSTRUTTORE
-	public Gioco() {
+	public GiocoMulti() {
 		board = new Board();
 	}
 
@@ -22,7 +22,7 @@ public class Gioco {
 
 		while(1==1) {
 			if((counter != 9) && (!board.getWinner())) { //quando arriva a 9 e non ha vinto nessuno il gioco finisce
-				System.out.println("Gioca il giocatore X. Inserisci le coordinate (riga,colonna) ");
+				System.out.println("Gioca " + Main.nome1 + ". Inserisci le coordinate (riga,colonna) ");
 				fatto = false;
 				while(!fatto) {
 					try {
@@ -44,6 +44,10 @@ public class Gioco {
 						System.out.println("Input non nel formato corretto. Riprova ");
 						fatto = false;
 					}
+					catch (NoSuchElementException e) {
+						System.out.println("Input non nel formato corretto. Riprova ");
+						fatto = false;
+					}
 				}
 
 				System.out.println();
@@ -51,7 +55,7 @@ public class Gioco {
 				System.out.println();
 
 				if((counter != 9) && (!board.getWinner())) {
-					System.out.println("Gioca il giocatore O. Inserisci le coordinate (riga,colonna) ");
+					System.out.println("Gioca " + Main.nome2+ ". Inserisci le coordinate (riga,colonna) ");
 					fatto = false;
 					while(!fatto) {
 						try {
@@ -88,9 +92,9 @@ public class Gioco {
 					else {
 						board.getWinner();
 						if(board.getWinnerX())
-							System.out.println("VINCE IL GIOCATORE X");
+							System.out.println("VINCE " + Main.nome1.toUpperCase() + "! ");
 						else
-							System.out.println("VINCE IL GIOCATORE O");
+							System.out.println("VINCE " + Main.nome2.toUpperCase() + "! ");
 					}
 					System.exit(0);
 				}
@@ -104,11 +108,11 @@ public class Gioco {
 				else {
 					board.getWinner();
 					if(board.getWinnerX())
-						System.out.println("VINCE IL GIOCATORE X");
+						System.out.println("VINCE " + Main.nome1.toUpperCase() + "! ");
 					else
-						System.out.println("VINCE IL GIOCATORE O");
+						System.out.println("VINCE " + Main.nome2.toUpperCase() + "! ");
 				}
-				System.exit(1);
+				System.exit(0);
 			}
 		}
 	}
