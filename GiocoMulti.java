@@ -36,7 +36,6 @@ public class GiocoMulti {
 							fatto = true;
 						else
 							fatto = false;
-						counter++; 
 					}
 					catch (NumberFormatException e) {
 						System.out.println("Input is not in the correct format. Please try again");
@@ -51,6 +50,7 @@ public class GiocoMulti {
 						fatto = false;
 					}
 				}
+				counter++; 
 
 				System.out.println();
 				System.out.println(board);
@@ -69,7 +69,6 @@ public class GiocoMulti {
 								fatto = true;
 							else
 								fatto = false;
-							counter++;
 						}
 						catch (NumberFormatException e) {
 							System.out.println("Input is not in the correct format. Please try again");
@@ -80,6 +79,7 @@ public class GiocoMulti {
 							fatto = false;
 						}
 					}
+					counter++; 
 
 					System.out.println();
 					System.out.println(board);

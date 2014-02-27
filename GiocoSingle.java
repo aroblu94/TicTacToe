@@ -36,8 +36,7 @@ public class GiocoSingle {
 						if(board.tic(x1-1,y1-1,player1))
 							fatto = true;
 						else
-							fatto = false;
-						counter++; 
+							fatto = false; 
 					}
 					catch (NumberFormatException e) {
 						System.out.println("Input is not in the correct format. Please try again");
@@ -52,6 +51,7 @@ public class GiocoSingle {
 						fatto = false;
 					}
 				}
+				counter++;
 
 				System.out.println();
 				System.out.println(board);
@@ -67,8 +67,8 @@ public class GiocoSingle {
 							fatto = true;
 						else
 							fatto = false;
-						counter++;
 					}
+					counter++;
 					System.out.println();
 					System.out.println(board);
 					System.out.println();
