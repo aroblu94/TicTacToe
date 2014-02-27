@@ -12,6 +12,7 @@ public class GiocoSingle {
 	private static Scanner token;
 	private boolean continua;
 	private Random r = new Random();
+	private int x2, y2 = 0;
 
 	//COSTRUTTORE
 	public GiocoSingle() {
@@ -61,8 +62,70 @@ public class GiocoSingle {
 					System.out.println("Computer plays. ");
 					fatto = false;
 					while(!fatto) {
-						int x2 = (r.nextInt(3));//(int)Math.random() * 2;
-						int y2 = (r.nextInt(3));//(int)Math.random() * 2;
+						//int x2 = (r.nextInt(3));//(int)Math.random() * 2;
+						//int y2 = (r.nextInt(3));//(int)Math.random() * 2;
+						if(Engine.puoPerdere()) {
+							if(Engine.puoPerderePrimaColonna()) {
+								y2 = 0;
+								x2 = (r.nextInt(3));
+							}
+							else if(Engine.puoPerdereSecondaColonna()) {
+								y2 = 1;
+								x2 = (r.nextInt(3));
+							}
+							else if(Engine.puoPerdereUltimaColonna()) {
+								y2 = 2;
+								x2 = (r.nextInt(3));
+							}
+							else if(Engine.puoPerderePrimaRiga()) {
+								x2 = 0;
+								y2 = (r.nextInt(3));
+							}
+							else if(Engine.puoPerdereSecondaRiga()) {
+								x2 = 1;
+								y2 = (r.nextInt(3));
+							}
+							else if(Engine.puoPerdereUltimaRiga()) {
+								x2 = 2;
+								y2 = (r.nextInt(3));
+							}
+							//else if(Engine.puoPerderePrimaDiagonale()) {
+
+							//else if(Engine.puoPerdereSecondaDiagonale()) {
+						}
+						else if(Engine.puoVincere()) {
+							if(Engine.puoVincerePrimaColonna()) {
+								y2 = 0;
+								x2 = (r.nextInt(3));
+							}
+							else if(Engine.puoVincereSecondaColonna()) {
+								y2 = 1;
+								x2 = (r.nextInt(3));
+							}
+							else if(Engine.puoVincereUltimaColonna()) {
+								y2 = 2;
+								x2 = (r.nextInt(3));
+							}
+							else if(Engine.puoVincerePrimaRiga()) {
+								x2 = 0;
+								y2 = (r.nextInt(3));
+							}
+							else if(Engine.puoVincereSecondaRiga()) {
+								x2 = 1;
+								y2 = (r.nextInt(3));
+							}
+							else if(Engine.puoVincereUltimaRiga()) {
+								x2 = 2;
+								y2 = (r.nextInt(3));
+							}
+							//else if(Engine.puoVincerePrimaDiagonale()) {
+
+							//else if(Engine.puoVincereSecondaDiagonale()) {
+						}
+						else {
+							x2 = (r.nextInt(3));
+							y2 = (r.nextInt(3));
+						}
 						if(board.tic(x2,y2,player2))
 							fatto = true;
 						else
