@@ -68,6 +68,7 @@ public class Board {
 	}
 
 	public boolean tic(int x, int y, String player) {
+		if(!Main.single) {
 			this.Control(x,y); //checking position ...
 			if(!occupato) {
 				board[x][y] = player;
@@ -77,6 +78,17 @@ public class Board {
 				System.out.println("Position occupied, made no move. Retry ");
 				return false;
 			}
+		}
+		else {
+			this.Control(x,y); //checking position ...
+			if(!occupato) {
+				board[x][y] = player;
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	}
 
 	/*

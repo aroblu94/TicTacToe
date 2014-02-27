@@ -4,6 +4,7 @@ import java.lang.*;
 public class Main {
 
 	public static String nome1, nome2;
+	public static boolean single = true;
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
@@ -19,6 +20,7 @@ public class Main {
 
 			switch(selettore) {
 				case 1:
+					single = true;
 					System.out.println("Enter player's name ");
 					nome1 = in.next();
 					System.out.println();
@@ -28,6 +30,7 @@ public class Main {
 					gs.play();
 					break;
 				case 2:
+					single = false;
 					System.out.println("Enter first player's name (X) ");
 					nome1 = in.next();
 					System.out.println();

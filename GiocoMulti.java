@@ -98,7 +98,6 @@ public class GiocoMulti {
 						else
 							System.out.println(Main.nome2.toUpperCase() + " WINS! ");
 					}
-					//System.exit(0);
 					continua = false;
 				}
 
@@ -115,7 +114,6 @@ public class GiocoMulti {
 					else
 						System.out.println(Main.nome2.toUpperCase() + " WINS! ");
 				}
-				//System.exit(0);
 				continua = false;
 			}
 		}
