@@ -14,4 +14,8 @@ public class GiocoSingle {
 	public void play() {
 		//...
 	}
+
+	public Board getBoard() {
+		return board;
+	}
 }

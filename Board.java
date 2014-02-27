@@ -11,7 +11,7 @@ public class Board {
   	private static int h, k;
 
 	//COSTRUTTORE
-	//costruisco il campo (matrice 3*3) vuoto
+	//building an empty field (3*3 matrix)
 	public Board() {
 		board = new String[rows][columns];
 		for(int x = 0; x < rows; x++) {
@@ -22,7 +22,7 @@ public class Board {
 	}
 
 	//METODI
-	//stampo lo stato della matrice
+	//printing the matrix
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		for(int x = 0; x < rows; x++) {
@@ -45,7 +45,17 @@ public class Board {
 		return s.toString();
 	}
 
-	//controllo che la posizione non sia occupata
+	public String toStringInit() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("1,1|1,2|1,3\n");
+		sb.append("---+---+---\n");
+		sb.append("2,1|2,2|2,3\n");
+		sb.append("---+---+---\n");
+		sb.append("3,1|3,2|3,3");
+		return sb.toString();
+	}
+
+	//check the position isn't occupied
 	public boolean Control(int x, int y) {
 		if(board[x][y] != " ") {
 			occupato = true;
@@ -58,33 +68,33 @@ public class Board {
 	}
 
 	public boolean tic(int x, int y, String player) {
-			this.Control(x,y); //controllo posizione
+			this.Control(x,y); //checking position ...
 			if(!occupato) {
 				board[x][y] = player;
 				return true;
 			}
 			else {
-				System.out.println("Posizione occupata, nessuna mossa effettuata. Riprova ");
+				System.out.println("Position occupied, made no move. Retry ");
 				return false;
 			}
 	}
 
 	/*
-	 * OBIETTIVO: quando ci sono 3 simboli uguali
-	 * in colonna, in riga o in diagonale
-	 * la partita finisce segnalando come vincitore
-	 * il giocatore con il simbolo che ha fatto "tris"
-	 * quando trova un vincitore => winner = true
-	 * e la partita finisce
+	 * TARGET:	when there are 3 identical symbols
+	 * 			in a row, a column or in diagonal
+	 * 			the match finishes and the winner is
+	 * 			the one has done a "tris".
+	 * 			when there is a winner => winner = true
+	 * 			and the match finishes.
 	 */
-	public boolean trisColonna() { //controllo che ci sia il "tris" in colonna
+	public boolean trisColonna() { //checking if there's a "tris" in a column
 		h = 0;
 		k = 0;
 		winner = false;
 		winnerX = false;
 		winnerO = false;
 
-		int y = 0;	//controllo sulla riga in alto
+		int y = 0;	//check the first column
 		for (int x = 0; x < rows; x++) {
 			if(board[x][y] == "X") {
 				h++;
@@ -106,7 +116,7 @@ public class Board {
 		k = 0;
 		h = 0;
 
-		y = 1;	//controllo sulla colonna centrale
+		y = 1;	//check the middle column
 		for (int x = 0; x < rows; x++) {
 			if(board[x][y] == "X") {
 				h++;
@@ -128,7 +138,7 @@ public class Board {
 		k = 0;
 		h = 0;
 
-		y = 2;	//controllo sull'ultima colonna
+		y = 2;	//check the last column
 		for (int x = 0; x < rows; x++) {
 			if(board[x][y] == "X") {
 				h++;
@@ -152,14 +162,14 @@ public class Board {
 		return winner;
 	}
 
-	public boolean trisRiga() { //controllo che ci sia il "tris" in riga
+	public boolean trisRiga() { //check that there is the "tris" in row
 		h = 0;
 		k = 0;
 		winner = false;
 		winnerX = false;
 		winnerO = false;
 
-		int x = 0; //controllo riga sinistra
+		int x = 0; //check the first row
 		for (int y = 0; y < columns; y++) {
 			if(board[x][y] == "X") {
 				h++;
@@ -181,12 +191,11 @@ public class Board {
 		k = 0;
 		h = 0;
 
-		x = 1; //controllo colonna centrale
+		x = 1; //check the middle row
 		for (int y = 0; y < columns; y++) {
 			if(board[x][y] == "X") {
 				h++;
 				if(h == 3) {
-					//System.out.println("VINCE IL GIOCATORE X (riga)");
 					winner = true;
 					winnerX = true;
 					break;
@@ -204,7 +213,7 @@ public class Board {
 		k = 0;
 		h = 0;
 
-		x = 2; //controllo riga destra
+		x = 2; //check the last row
 		for (int y = 0; y < columns; y++) {
 			if(board[x][y] == "X") {
 				h++;
@@ -217,7 +226,6 @@ public class Board {
 			else if(board[x][y] == "O") {
 				k++;
 				if(k == 3) {
-					//System.out.println("VINCE IL GIOCATORE O (riga)");
 					winner = true;
 					winnerO = true;
 					break;
@@ -229,7 +237,7 @@ public class Board {
 		return winner;
 	}
 
-	public boolean trisDiagonale() { //controllo che ci sia il "tris" in diagonale
+	public boolean trisDiagonale() { //check that there is the "tris" in diagonal
 		h = 0;
 		k = 0;
 		winner = false;
@@ -237,7 +245,7 @@ public class Board {
 		winnerO = false;
 
 		/*
-		 * Controllo che il tris avvenga così:
+		 * check the "tris" happen so:
 		 * X
 		 *  X
 		 *   X
@@ -265,7 +273,7 @@ public class Board {
 		h = 0;
 
 		/*
-		 * Ora controllo che avvenga dall'altra parte:
+		 * check the "tris" happen so:
 		 *   X
 		 *  X
 		 * X

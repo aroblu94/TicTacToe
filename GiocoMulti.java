@@ -10,6 +10,7 @@ public class GiocoMulti {
 	private static boolean fatto;
 	private static Scanner in = new Scanner(System.in);
 	private static Scanner token;
+	private boolean continua;
 
 	//COSTRUTTORE
 	public GiocoMulti() {
@@ -19,10 +20,11 @@ public class GiocoMulti {
 	//METODI
 	public void play() {
 		counter = 0;
+		continua = true;
 
-		while(1==1) {
-			if((counter != 9) && (!board.getWinner())) { //quando arriva a 9 e non ha vinto nessuno il gioco finisce
-				System.out.println("Gioca " + Main.nome1 + ". Inserisci le coordinate (riga,colonna) ");
+		while(continua) {
+			if((counter != 9) && (!board.getWinner())) { //when counter = 9 it's a tie
+				System.out.println(Main.nome1 + " plays. Insert coordinates (row,column) ");
 				fatto = false;
 				while(!fatto) {
 					try {
@@ -37,15 +39,15 @@ public class GiocoMulti {
 						counter++; 
 					}
 					catch (NumberFormatException e) {
-						System.out.println("Input non nel formato corretto. Riprova ");
+						System.out.println("Input is not in the correct format. Please try again");
 						fatto = false;
 					}
 					catch (ArrayIndexOutOfBoundsException e) {
-						System.out.println("Input non nel formato corretto. Riprova ");
+						System.out.println("Input is not in the correct format. Please try again");
 						fatto = false;
 					}
 					catch (NoSuchElementException e) {
-						System.out.println("Input non nel formato corretto. Riprova ");
+						System.out.println("Input is not in the correct format. Please try again");
 						fatto = false;
 					}
 				}
@@ -55,7 +57,7 @@ public class GiocoMulti {
 				System.out.println();
 
 				if((counter != 9) && (!board.getWinner())) {
-					System.out.println("Gioca " + Main.nome2+ ". Inserisci le coordinate (riga,colonna) ");
+					System.out.println(Main.nome2 + " plays. Insert coordinates (row,column) ");
 					fatto = false;
 					while(!fatto) {
 						try {
@@ -70,11 +72,11 @@ public class GiocoMulti {
 							counter++;
 						}
 						catch (NumberFormatException e) {
-							System.out.println("Input non nel formato corretto. Riprova ");
+							System.out.println("Input is not in the correct format. Please try again");
 							fatto = false;
 						}
 						catch (ArrayIndexOutOfBoundsException e) {
-							System.out.println("Input non nel formato corretto. Riprova ");
+							System.out.println("Input is not in the correct format. Please try again");
 							fatto = false;
 						}
 					}
@@ -87,32 +89,34 @@ public class GiocoMulti {
 				else {
 					if((counter == 9) && (!board.getWinner())) {
 						System.out.println();
-						System.out.println("PARTITA TERMINATA IN PARITA'");
+						System.out.println("IT'S A TIE!");
 					}
 					else {
 						board.getWinner();
 						if(board.getWinnerX())
-							System.out.println("VINCE " + Main.nome1.toUpperCase() + "! ");
+							System.out.println(Main.nome1.toUpperCase() + " WINS! ");
 						else
-							System.out.println("VINCE " + Main.nome2.toUpperCase() + "! ");
+							System.out.println(Main.nome2.toUpperCase() + " WINS! ");
 					}
-					System.exit(0);
+					//System.exit(0);
+					continua = false;
 				}
 
 			}
 			else {
 				if((counter == 9) && (!board.getWinner())) {
 					System.out.println();
-					System.out.println("PARTITA TERMINATA IN PARITA'");
+					System.out.println("IT'S A TIE!");
 				}
 				else {
 					board.getWinner();
 					if(board.getWinnerX())
-						System.out.println("VINCE " + Main.nome1.toUpperCase() + "! ");
+						System.out.println(Main.nome1.toUpperCase() + " WINS! ");
 					else
-						System.out.println("VINCE " + Main.nome2.toUpperCase() + "! ");
+						System.out.println(Main.nome2.toUpperCase() + " WINS! ");
 				}
-				System.exit(0);
+				//System.exit(0);
+				continua = false;
 			}
 		}
 	}
@@ -123,6 +127,10 @@ public class GiocoMulti {
 
 	public static void decCounter() { 
 		counter--;
+	}
+
+	public Board getBoard() {
+		return board;
 	}
 
 
