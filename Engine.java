@@ -78,7 +78,7 @@ public class Engine {
 			if(Board.board[x][y] == "X")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -86,12 +86,12 @@ public class Engine {
 
 	public static boolean puoPerdereSecondaColonna() {
 		int h = 0;
-		int y = 1;	//check the middle column
+		int y = 2;	//check the middle column
 		for (int x = 0; x < 3; x++) {
 			if(Board.board[x][y] == "X")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -104,7 +104,7 @@ public class Engine {
 			if(Board.board[x][y] == "X")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -117,7 +117,7 @@ public class Engine {
 			if(Board.board[x][y] == "X")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -125,12 +125,12 @@ public class Engine {
 
 	public static boolean puoPerdereSecondaRiga() {
 		int h = 0;
-		int x = 1; //check the middle row
+		int x = 2; //check the middle row
 		for (int y = 0; y < 3; y++) {
 			if(Board.board[x][y] == "X")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -143,7 +143,7 @@ public class Engine {
 			if(Board.board[x][y] == "X")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -157,7 +157,7 @@ public class Engine {
 			if(Board.board[x][y] == "X")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -167,12 +167,12 @@ public class Engine {
 		int h = 0;
 		if(Board.board[2][0] == "X")
 			h++;
-		if(Board.board[1][1] == "X")
+		if(Board.board[2][2] == "X")
 			h++;
 		if(Board.board[0][2] == "X")
 			h++;
 
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;	
@@ -186,7 +186,7 @@ public class Engine {
 			if(Board.board[x][y] == "O")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -194,12 +194,12 @@ public class Engine {
 
 	public static boolean puoVincereSecondaColonna() {
 		int h = 0;
-		int y = 1;	//check the middle column
+		int y = 2;	//check the middle column
 		for (int x = 0; x < 3; x++) {
 			if(Board.board[x][y] == "O")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -212,7 +212,7 @@ public class Engine {
 			if(Board.board[x][y] == "O")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -225,7 +225,7 @@ public class Engine {
 			if(Board.board[x][y] == "O")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -233,12 +233,12 @@ public class Engine {
 
 	public static boolean puoVincereSecondaRiga() {
 		int h = 0;
-		int x = 1; //check the middle row
+		int x = 2; //check the middle row
 		for (int y = 0; y < 3; y++) {
 			if(Board.board[x][y] == "O")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -251,7 +251,7 @@ public class Engine {
 			if(Board.board[x][y] == "O")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -265,7 +265,7 @@ public class Engine {
 			if(Board.board[x][y] == "O")
 				h++;
 		}
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;
@@ -275,12 +275,12 @@ public class Engine {
 		int h = 0;
 		if(Board.board[2][0] == "O")
 			h++;
-		if(Board.board[1][1] == "O")
+		if(Board.board[2][2] == "O")
 			h++;
 		if(Board.board[0][2] == "O")
 			h++;
 
-		if(h > 1)
+		if(h == 2)
 			return true;
 		else
 			return false;	

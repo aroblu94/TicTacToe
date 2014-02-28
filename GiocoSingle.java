@@ -12,7 +12,7 @@ public class GiocoSingle {
 	private static Scanner token;
 	private boolean continua;
 	private Random r = new Random();
-	private int x2, y2 = 0;
+	private int x2 = 0, y2 = 0;
 
 	//COSTRUTTORE
 	public GiocoSingle() {
