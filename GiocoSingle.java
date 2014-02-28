@@ -64,7 +64,7 @@ public class GiocoSingle {
 					while(!fatto) {
 						//int x2 = (r.nextInt(3));//(int)Math.random() * 2;
 						//int y2 = (r.nextInt(3));//(int)Math.random() * 2;
-						if(Engine.puoPerdere()) {
+						//if(Engine.puoPerdere()) {
 							if(Engine.puoPerderePrimaColonna()) {
 								y2 = 0;
 								x2 = (r.nextInt(3));
@@ -92,9 +92,9 @@ public class GiocoSingle {
 							//else if(Engine.puoPerderePrimaDiagonale()) {
 
 							//else if(Engine.puoPerdereSecondaDiagonale()) {
-						}
-						else if(Engine.puoVincere()) {
-							if(Engine.puoVincerePrimaColonna()) {
+						//}
+						//else if(Engine.puoVincere()) {
+							else if(Engine.puoVincerePrimaColonna()) {
 								y2 = 0;
 								x2 = (r.nextInt(3));
 							}
@@ -121,7 +121,7 @@ public class GiocoSingle {
 							//else if(Engine.puoVincerePrimaDiagonale()) {
 
 							//else if(Engine.puoVincereSecondaDiagonale()) {
-						}
+						//}
 						else {
 							x2 = (r.nextInt(3));
 							y2 = (r.nextInt(3));
