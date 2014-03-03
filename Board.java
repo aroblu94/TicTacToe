@@ -1,7 +1,7 @@
 public class Board {
 
 	//CAMPI
-	private String[][] board;
+	static String[][] board;
 	private static final int rows = 3;
   	private static final int columns = 3;
   	private static boolean occupato;
@@ -59,7 +59,7 @@ public class Board {
 	public boolean Control(int x, int y) {
 		if(board[x][y] != " ") {
 			occupato = true;
-			GiocoMulti.decCounter();
+			//GiocoMulti.decCounter();
 		}
 		else
 			occupato = false;
@@ -336,5 +336,9 @@ public class Board {
 
 	public boolean getWinnerO() {
 		return winnerO;
+	}
+	
+	public String[][] getMatrix() {
+		return board;
 	}
 }
