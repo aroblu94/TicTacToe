@@ -337,4 +337,8 @@ public class Board {
 	public boolean getWinnerO() {
 		return winnerO;
 	}
+	
+	public String[][] getMatrix() {
+		return board;
+	}
 }
