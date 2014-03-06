@@ -1,9 +1,16 @@
 #!/bin/bash
 
-echo Removing previous .class files, if any...
-rm -f *.class
+echo "Removing bin dir if any and re-creating it..."
+rm -rf bin
+mkdir bin
 
-echo Compiling all .java files and executing Main.class...
-javac *.java
+echo "Compiling into bin dir..."
+javac -d bin Main.java
+
+echo "Game will now start"
 clear
+cd bin
 java Main
+cd ..
+
+clear
