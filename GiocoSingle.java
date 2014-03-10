@@ -63,184 +63,183 @@ public class GiocoSingle {
 					System.out.println("Computer plays. ");
 					fatto = false;
 					while(!fatto) {
-						//if(Engine.puoPerdere()) {
-							if(Engine.puoPerderePrimaColonna()) {
-								if(debug) {System.out.println("Il pc puo' perdere sulla prima colonna");}
-								y2 = 0;
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][y2] == " ") {
-										x2 = x;
-										break;
-									}
+						//Can computer win?
+						if(Engine.puoVincerePrimaColonna()) {
+							if(debug) {System.out.println("Il pc puo' vincere sulla prima colonna");}
+							y2 = 0;
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][y2] == " ") {
+									x2 = x;
+									break;
 								}
 							}
-							else if(Engine.puoPerdereSecondaColonna()) {
-								if(debug) {System.out.println("Il pc puo' perdere sulla seconda colonna");}
-								y2 = 1;
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][y2] == " ") {
-										x2 = x;
-										break;
-									}
+						}
+						else if(Engine.puoVincereSecondaColonna()) {
+							if(debug) {System.out.println("Il pc puo' vincere sulla seconda colonna");}
+							y2 = 1;
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][y2] == " ") {
+									x2 = x;
+									break;
 								}
 							}
-							else if(Engine.puoPerdereUltimaColonna()) {
-								if(debug) {System.out.println("Il pc puo' perdere sull'ultima colonna");}
-								y2 = 2;
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][y2] == " ") {
-										x2 = x;
-										break;
-									}
+						}
+						else if(Engine.puoVincereUltimaColonna()) {
+							if(debug) {System.out.println("Il pc puo' vincere sull'ultima colonna");}
+							y2 = 2;
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][y2] == " ") {
+									x2 = x;
+									break;
 								}
 							}
-							else if(Engine.puoPerderePrimaRiga()) {
-								if(debug) {System.out.println("Il pc puo' perdere sulla prima riga");}
-								x2 = 0;
-								for(int y = 0; y < 3; y++) {
-									if(Board.board[x2][y] == " ") {
-										y2 = y;
-										break;
-									}
+						}
+						else if(Engine.puoVincerePrimaRiga()) {
+							if(debug) {System.out.println("Il pc puo' vincere sulla prima riga");}
+							x2 = 0;
+							for(int y = 0; y < 3; y++) {
+								if(Board.board[x2][y] == " ") {
+									y2 = y;
+									break;
 								}
 							}
-							else if(Engine.puoPerdereSecondaRiga()) {
-								if(debug) {System.out.println("Il pc puo' perdere sulla seconda riga");}
-								x2 = 1;
-								for(int y = 0; y < 3; y++) {
-									if(Board.board[x2][y] == " ") {
-										y2 = y;
-										break;
-									}
+						}
+						else if(Engine.puoVincereSecondaRiga()) {
+							if(debug) {System.out.println("Il pc puo' vincere sulla seconda riga");}
+							x2 = 1;
+							for(int y = 0; y < 3; y++) {
+								if(Board.board[x2][y] == " ") {
+									y2 = y;
+									break;
 								}
 							}
-							else if(Engine.puoPerdereUltimaRiga()) {
-								if(debug) {System.out.println("Il pc puo' perdere sull'ultima riga");}
+						}
+						else if(Engine.puoVincereUltimaRiga()) {
+							if(debug) {System.out.println("Il pc puo' vincere sull'ultima riga");}
+							x2 = 2;
+							for(int y = 0; y < 3; y++) {
+								if(Board.board[x2][y] == " ") {
+									y2 = y;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoVincerePrimaDiagonale()) {
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][x] == " ") {
+									x2 = x;
+									y2 = x;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoVincereSecondaDiagonale()) {
+							if(Board.board[2][0] == " ") {
 								x2 = 2;
-								for(int y = 0; y < 3; y++) {
-									if(Board.board[x2][y] == " ") {
-										y2 = y;
-										break;
-									}
-								}
-							}
-							else if(Engine.puoPerderePrimaDiagonale()) {
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][x] == " ") {
-										x2 = x;
-										y2 = x;
-										break;
-									}
-								}
-							}
-							else if(Engine.puoPerdereSecondaDiagonale()) {
-								if(Board.board[2][0] == " ") {
-									x2 = 2;
-									y2 = 0;
-								}
-								else if(Board.board[1][1] == " ") {
-									x2 = 1;
-									y2 = 1;
-								}
-								else if(Board.board[0][2] == " ") {
-									x2 = 0;
-									y2 = 2;
-								}	
-							}
-						//else if(Engine.puoVincere()) {
-							else if(Engine.puoVincerePrimaColonna()) {
-								if(debug) {System.out.println("Il pc puo' vincere sulla prima colonna");}
 								y2 = 0;
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][y2] == " ") {
-										x2 = x;
-										break;
-									}
-								}
 							}
-							else if(Engine.puoVincereSecondaColonna()) {
-								if(debug) {System.out.println("Il pc puo' vincere sulla seconda colonna");}
-								y2 = 1;
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][y2] == " ") {
-										x2 = x;
-										break;
-									}
-								}
-							}
-							else if(Engine.puoVincereUltimaColonna()) {
-								if(debug) {System.out.println("Il pc puo' vincere sull'ultima colonna");}
-								y2 = 2;
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][y2] == " ") {
-										x2 = x;
-										break;
-									}
-								}
-							}
-							else if(Engine.puoVincerePrimaRiga()) {
-								if(debug) {System.out.println("Il pc puo' vincere sulla prima riga");}
-								x2 = 0;
-								for(int y = 0; y < 3; y++) {
-									if(Board.board[x2][y] == " ") {
-										y2 = y;
-										break;
-									}
-								}
-							}
-							else if(Engine.puoVincereSecondaRiga()) {
-								if(debug) {System.out.println("Il pc puo' vincere sulla seconda riga");}
+							else if(Board.board[1][1] == " ") {
 								x2 = 1;
-								for(int y = 0; y < 3; y++) {
-									if(Board.board[x2][y] == " ") {
-										y2 = y;
-										break;
-									}
+								y2 = 1;
+							}
+							else if(Board.board[0][2] == " ") {
+								x2 = 0;
+								y2 = 2;
+							}
+						}
+						//Can computer loose?
+						else if(Engine.puoPerderePrimaColonna()) {
+							if(debug) {System.out.println("Il pc puo' perdere sulla prima colonna");}
+							y2 = 0;
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][y2] == " ") {
+									x2 = x;
+									break;
 								}
 							}
-							else if(Engine.puoVincereUltimaRiga()) {
-								if(debug) {System.out.println("Il pc puo' vincere sull'ultima riga");}
+						}
+						else if(Engine.puoPerdereSecondaColonna()) {
+							if(debug) {System.out.println("Il pc puo' perdere sulla seconda colonna");}
+							y2 = 1;
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][y2] == " ") {
+									x2 = x;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoPerdereUltimaColonna()) {
+							if(debug) {System.out.println("Il pc puo' perdere sull'ultima colonna");}
+							y2 = 2;
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][y2] == " ") {
+									x2 = x;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoPerderePrimaRiga()) {
+							if(debug) {System.out.println("Il pc puo' perdere sulla prima riga");}
+							x2 = 0;
+							for(int y = 0; y < 3; y++) {
+								if(Board.board[x2][y] == " ") {
+									y2 = y;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoPerdereSecondaRiga()) {
+							if(debug) {System.out.println("Il pc puo' perdere sulla seconda riga");}
+							x2 = 1;
+							for(int y = 0; y < 3; y++) {
+								if(Board.board[x2][y] == " ") {
+									y2 = y;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoPerdereUltimaRiga()) {
+							if(debug) {System.out.println("Il pc puo' perdere sull'ultima riga");}
+							x2 = 2;
+							for(int y = 0; y < 3; y++) {
+								if(Board.board[x2][y] == " ") {
+									y2 = y;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoPerderePrimaDiagonale()) {
+							for(int x = 0; x < 3; x++) {
+								if(Board.board[x][x] == " ") {
+									x2 = x;
+									y2 = x;
+									break;
+								}
+							}
+						}
+						else if(Engine.puoPerdereSecondaDiagonale()) {
+							if(Board.board[2][0] == " ") {
 								x2 = 2;
-								for(int y = 0; y < 3; y++) {
-									if(Board.board[x2][y] == " ") {
-										y2 = y;
-										break;
-									}
-								}
+								y2 = 0;
 							}
-							else if(Engine.puoVincerePrimaDiagonale()) {
-								for(int x = 0; x < 3; x++) {
-									if(Board.board[x][x] == " ") {
-										x2 = x;
-										y2 = x;
-										break;
-									}
-								}
+							else if(Board.board[1][1] == " ") {
+								x2 = 1;
+								y2 = 1;
 							}
-							else if(Engine.puoVincereSecondaDiagonale()) {
-								if(Board.board[2][0] == " ") {
-									x2 = 2;
-									y2 = 0;
-								}
-								else if(Board.board[1][1] == " ") {
-									x2 = 1;
-									y2 = 1;
-								}
-								else if(Board.board[0][2] == " ") {
-									x2 = 0;
-									y2 = 2;
-								}
-							}
+							else if(Board.board[0][2] == " ") {
+								x2 = 0;
+								y2 = 2;
+							}	
+						}
+						//Controllo se il centro e' vuoto
+						else if(Board.board[1][1].equals(" ")) {
+							x2 = 1;
+							y2 = 1;
+						}
 						else {
-							if(board.getMatrix()[1][1].equals(" ")) {
-								x2 = 1;
-								y2 = 1;
-							}
 							if(debug) {System.out.println("Mossa casuale");}
-							else {
-								x2 = (r.nextInt(3));
-								y2 = (r.nextInt(3));
-							}
+							x2 = (r.nextInt(3));
+							y2 = (r.nextInt(3));
 						}
 						if(board.tic(x2,y2,player2))
 							fatto = true;

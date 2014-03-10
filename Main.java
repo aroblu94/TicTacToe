@@ -7,15 +7,29 @@ public class Main {
 	public static boolean single = true;
 
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
+		Scanner in = null;
 		boolean continua = true;
+		boolean fatto;
+		int selettore = 0;
 			
 		while(continua) {
-			System.out.println("Choose what kind of game you want to play (3 to exit): ");
-			System.out.println("(1) Singleplayer ");
-			System.out.println("(2) Multiplayer ");
-			int selettore = in.nextInt();
-			System.out.println();
+			fatto = false;
+			while(!fatto) {
+				System.out.println("Choose what kind of game you want to play (3 to exit): ");
+				System.out.println("(1) Singleplayer ");
+				System.out.println("(2) Multiplayer ");
+				try {
+					in = new Scanner(System.in);
+					selettore = in.nextInt();
+					fatto = true;
+					break;
+				}
+				catch(InputMismatchException e) {
+					System.out.println("Input is not in the correct format. Please try again");
+					fatto = false;
+				}
+				System.out.println();
+			}
 
 			switch(selettore) {
 				case 1:
