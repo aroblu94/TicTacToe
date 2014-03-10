@@ -11,10 +11,15 @@ public class Main {
 		boolean continua = true;
 		boolean fatto;
 		int selettore = 0;
-		int disputate = 0;
+		int disputateSingle = 0;
+		int disputateMulti = 0;
 		double percX = 0;
 		double percO = 0;
 		double percPari = 0;
+		double percVinteSingle = 0;
+		double percPerseSingle = 0;
+		double percPariSingle = 0;
+		double percPariMulti = 0;
 			
 		while(continua) {
 			fatto = false;
@@ -49,7 +54,7 @@ public class Main {
 					Clear.clear();
 					//System.out.println();
 					gs.play();
-					disputate++;
+					disputateSingle++;
 					break;
 				case 2:
 					single = false;
@@ -66,32 +71,54 @@ public class Main {
 					//System.out.println();
 					Clear.clear();
 					gm.play();
-					disputate++;
+					disputateMulti++;
 					break;
 				case 3:
-					int vinteX = GiocoMulti.vinteX() + GiocoSingle.vinteX();
-					int vinteO = GiocoMulti.vinteO() + GiocoSingle.vinteO();
-					int pari = GiocoMulti.pari() + GiocoSingle.pari();
-					if(disputate != 0) {
-						percX = (double)vinteX / (double)disputate * 100;
-						percO = (double)vinteO / (double)disputate * 100;
-						percPari = (double)pari / (double)disputate * 100;
+					Clear.clear();
+					int vinteX = GiocoMulti.vinteX();
+					int vinteO = GiocoMulti.vinteO();
+					int pariMulti = GiocoMulti.pari();
+					if(disputateMulti != 0) {
+						percX = (double)vinteX / (double)disputateMulti * 100;
+						percO = (double)vinteO / (double)disputateMulti * 100;
+						percPariMulti = (double)pariMulti / (double)disputateMulti * 100;
 					}
 					else {
 						percX = 0;
 						percO = 0;
-						percPari = 0;
+						percPariMulti = 0;
 					}
 
-					System.out.println("RESULTS:");
-					System.out.println("Player X: " + vinteX + " game(s) won (" + percX + "%) ");
-					System.out.println("Player O: " + vinteO + " game(s) won (" + percO + "%) ");
-					System.out.println("Ties: " + pari + " (" + percPari + "%) ");
+					int vinteSingle = GiocoSingle.vinteX();
+					int perseSingle = GiocoSingle.vinteO();
+					int pariSingle = GiocoSingle.pari();
+					if(disputateSingle != 0) {
+						percVinteSingle = (double)vinteSingle / (double)disputateSingle * 100;
+						percPerseSingle = (double)perseSingle / (double)disputateSingle * 100;
+						percPariSingle = (double)pariSingle / (double)disputateSingle * 100;
+					}
+					else {
+						percVinteSingle = 0;
+						percPerseSingle = 0;
+						percPariSingle = 0;
+					}
+
+					System.out.println(".:RESULTS:.");
+					System.out.println();
+					System.out.println("Singleplayer: ");
+					System.out.println("Wons: " + vinteSingle + " (" + percVinteSingle + "%) ");
+					System.out.println("Losts: " + perseSingle + " (" + percPerseSingle + "%) ");
+					System.out.println("Ties: " + pariSingle + " (" + percPariSingle + "%) ");
+					System.out.println();
+					System.out.println("Multiplayer: ");
+					System.out.println("Wons by " + nome1 + ": " + vinteX + " (" + percX + "%) ");
+					System.out.println("Wons by " + nome2 + ": " + vinteO + " (" + percO + "%) ");
+					System.out.println("Ties: " + pariMulti + " (" + percPariMulti + "%) ");
 					System.out.println();
 					break;
 				case 4:
 					Clear.clear();
-					System.out.println("HOW TO PLAY ");
+					System.out.println(".:HOW TO PLAY:. ");
 					System.out.println("The target of the game is to do a 'tris'.");
 					System.out.println("A 'tris' is when you put 3 times the same symbol (X or O)");
 					System.out.println("in row, column or diagonal. ");

@@ -271,7 +271,7 @@ public class GiocoSingle {
 					else {
 						board.getWinner();
 						if(board.getWinnerX()) {
-							System.out.println(Main.nome1.toUpperCase() + " (x) WINS! ");
+							System.out.println(Main.nome1.toUpperCase() + " (X) WINS! ");
 							vinteX++;
 						}
 						else {
