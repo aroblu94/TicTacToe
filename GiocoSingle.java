@@ -232,9 +232,15 @@ public class GiocoSingle {
 								}
 							}
 						else {
+							if(board.getMatrix()[1][1].equals(" ")) {
+								x2 = 1;
+								y2 = 1;
+							}
 							if(debug) {System.out.println("Mossa casuale");}
-							x2 = (r.nextInt(3));
-							y2 = (r.nextInt(3));
+							else {
+								x2 = (r.nextInt(3));
+								y2 = (r.nextInt(3));
+							}
 						}
 						if(board.tic(x2,y2,player2))
 							fatto = true;

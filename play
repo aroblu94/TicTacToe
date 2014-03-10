@@ -12,5 +12,6 @@ clear
 cd bin
 java Main
 cd ..
+rm -rf bin
 
 clear

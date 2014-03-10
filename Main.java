@@ -9,12 +9,11 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		boolean continua = true;
-
+			
 		while(continua) {
 			System.out.println("Choose what kind of game you want to play (3 to exit): ");
 			System.out.println("(1) Singleplayer ");
 			System.out.println("(2) Multiplayer ");
-
 			int selettore = in.nextInt();
 			System.out.println();
 
