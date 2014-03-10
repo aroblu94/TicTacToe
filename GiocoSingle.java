@@ -27,6 +27,10 @@ public class GiocoSingle {
 	public void play() {
 		counter = 0;
 		continua = true;
+		Clear.clear();
+		System.out.println();
+		System.out.println(board);
+		System.out.println();
 
 		while(continua) {
 			if((counter != 9) && (!board.getWinner())) { //when counter = 9 it's a tie
@@ -58,12 +62,14 @@ public class GiocoSingle {
 				}
 				counter++;
 
+				Clear.clear();
 				System.out.println();
 				System.out.println(board);
 				System.out.println();
 
 				if((counter != 9) && (!board.getWinner())) {
 					System.out.println("Computer plays. ");
+					String go = in.next();
 					fatto = false;
 					while(!fatto) {
 						//Can computer win?
@@ -250,6 +256,7 @@ public class GiocoSingle {
 							fatto = false;
 					}
 					counter++;
+					Clear.clear();
 					System.out.println();
 					System.out.println(board);
 					System.out.println();

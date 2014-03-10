@@ -45,7 +45,7 @@ public class Board {
 		return s.toString();
 	}
 
-	public String toStringInit() {
+	public static String toStringInit() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("1,1|1,2|1,3\n");
 		sb.append("---+---+---\n");

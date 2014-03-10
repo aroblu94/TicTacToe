@@ -27,6 +27,10 @@ public class GiocoMulti {
 	public void play() {
 		counter = 0;
 		continua = true;
+		Clear.clear();
+		System.out.println();
+		System.out.println(board);
+		System.out.println();
 
 		while(continua) {
 			if((counter != 9) && (!board.getWinner())) { //when counter = 9 it's a tie
@@ -58,6 +62,7 @@ public class GiocoMulti {
 				}
 				counter++; 
 
+				Clear.clear();
 				System.out.println();
 				System.out.println(board);
 				System.out.println();
@@ -87,6 +92,7 @@ public class GiocoMulti {
 					}
 					counter++; 
 
+					Clear.clear();
 					System.out.println();
 					System.out.println(board);
 					System.out.println();
