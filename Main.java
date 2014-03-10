@@ -11,13 +11,18 @@ public class Main {
 		boolean continua = true;
 		boolean fatto;
 		int selettore = 0;
+		int disputate = 0;
+		double percX = 0;
+		double percO = 0;
+		double percPari = 0;
 			
 		while(continua) {
 			fatto = false;
 			while(!fatto) {
-				System.out.println("Choose what kind of game you want to play (3 to exit): ");
+				System.out.println("Choose what you want to do (4 or more to exit): ");
 				System.out.println("(1) Singleplayer ");
 				System.out.println("(2) Multiplayer ");
+				System.out.println("(3) View results ");
 				try {
 					in = new Scanner(System.in);
 					selettore = in.nextInt();
@@ -55,6 +60,26 @@ public class Main {
 					System.out.println();
 					gm.play();
 					break;
+				case 3:
+					int vinteX = GiocoMulti.vinteX() + GiocoSingle.vinteX();
+					int vinteO = GiocoMulti.vinteO() + GiocoSingle.vinteO();
+					int pari = GiocoMulti.pari() + GiocoSingle.pari();
+					if(disputate != 0) {
+						percX = (double)vinteX / (double)disputate * 100;
+						percO = (double)vinteO / (double)disputate * 100;
+						percPari = (double)pari / (double)disputate * 100;
+					}
+					else {
+						percX = 0;
+						percO = 0;
+						percPari = 0;
+					}
+
+					System.out.println("RESULTS:");
+					System.out.println("Player X: " + vinteX + " game(s) won (" + percX + "%) ");
+					System.out.println("Player O: " + vinteO + " game(s) won (" + percO + "%) ");
+					System.out.println("Ties: " + pari + " (" + percPari + "%) ");
+					break;
 				default:
 					System.exit(0);
 					break;
@@ -65,6 +90,7 @@ public class Main {
 				continua = true;
 			else
 				continua = false;
+			disputate++;
 			System.out.println();
 		}
 	}

@@ -14,6 +14,9 @@ public class GiocoSingle {
 	private boolean continua;
 	private Random r = new Random();
 	private int x2 = 0, y2 = 0;
+	private static int vinteX = 0;
+	private static int vinteO = 0;
+	private static int pari = 0;
 
 	//COSTRUTTORE
 	public GiocoSingle() {
@@ -256,13 +259,18 @@ public class GiocoSingle {
 					if((counter == 9) && (!board.getWinner())) {
 						System.out.println();
 						System.out.println("IT'S A TIE!");
+						pari++;
 					}
 					else {
 						board.getWinner();
-						if(board.getWinnerX())
-							System.out.println(Main.nome1.toUpperCase() + " WINS! ");
-						else
-							System.out.println("COMPUTER WINS! ");
+						if(board.getWinnerX()) {
+							System.out.println(Main.nome1.toUpperCase() + " (x) WINS! ");
+							vinteX++;
+						}
+						else {
+							System.out.println("COMPUTER (O) WINS! ");
+							vinteO++;
+						}
 					}
 					continua = false;
 				}
@@ -272,13 +280,18 @@ public class GiocoSingle {
 				if((counter == 9) && (!board.getWinner())) {
 					System.out.println();
 					System.out.println("IT'S A TIE!");
+					pari++;
 				}
 				else {
 					board.getWinner();
-					if(board.getWinnerX())
-						System.out.println(Main.nome1.toUpperCase() + " WINS! ");
-					else
-						System.out.println("COMPUTER WINS! ");
+					if(board.getWinnerX()) {
+						System.out.println(Main.nome1.toUpperCase() + " (X) WINS! ");
+						vinteX++;
+					}
+					else {
+						System.out.println("COMPUTER (O) WINS! ");
+						vinteO++;
+					}
 				}
 				continua = false;
 			}
@@ -295,5 +308,17 @@ public class GiocoSingle {
 
 	public Board getBoard() {
 		return board;
+	}
+
+	public static int vinteX() {
+		return vinteX;
+	}
+
+	public static int vinteO() {
+		return vinteO;
+	}
+
+	public static int pari() {
+		return pari;
 	}
 }

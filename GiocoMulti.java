@@ -11,10 +11,16 @@ public class GiocoMulti {
 	private static Scanner in = new Scanner(System.in);
 	private static Scanner token;
 	private boolean continua;
+	private static int vinteX = 0;
+	private static int vinteO = 0;
+	private static int pari = 0;
 
 	//COSTRUTTORE
 	public GiocoMulti() {
 		board = new Board();
+		vinteX = 0;
+		vinteO = 0;
+		pari = 0;
 	}
 
 	//METODI
@@ -90,13 +96,18 @@ public class GiocoMulti {
 					if((counter == 9) && (!board.getWinner())) {
 						System.out.println();
 						System.out.println("IT'S A TIE!");
+						pari++;
 					}
 					else {
 						board.getWinner();
-						if(board.getWinnerX())
-							System.out.println(Main.nome1.toUpperCase() + " WINS! ");
-						else
-							System.out.println(Main.nome2.toUpperCase() + " WINS! ");
+						if(board.getWinnerX()) {
+							System.out.println(Main.nome1.toUpperCase() + " (X) WINS! ");
+							vinteX++;
+						}
+						else {
+							System.out.println(Main.nome2.toUpperCase() + " (O) WINS! ");
+							vinteO++;
+						}
 					}
 					continua = false;
 				}
@@ -106,13 +117,18 @@ public class GiocoMulti {
 				if((counter == 9) && (!board.getWinner())) {
 					System.out.println();
 					System.out.println("IT'S A TIE!");
+					pari++;
 				}
 				else {
 					board.getWinner();
-					if(board.getWinnerX())
-						System.out.println(Main.nome1.toUpperCase() + " WINS! ");
-					else
-						System.out.println(Main.nome2.toUpperCase() + " WINS! ");
+					if(board.getWinnerX()) {
+						System.out.println(Main.nome1.toUpperCase() + " (X) WINS! ");
+						vinteX++;
+					}
+					else {
+						System.out.println(Main.nome2.toUpperCase() + " (O) WINS! ");
+						vinteO++;
+					}
 				}
 				continua = false;
 			}
@@ -129,6 +145,18 @@ public class GiocoMulti {
 
 	public Board getBoard() {
 		return board;
+	}
+
+	public static int vinteX() {
+		return vinteX;
+	}
+
+	public static int vinteO() {
+		return vinteO;
+	}
+
+	public static int pari() {
+		return pari;
 	}
 
 
