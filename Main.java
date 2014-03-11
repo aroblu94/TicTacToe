@@ -1,17 +1,18 @@
 import java.util.*;
 import java.lang.*;
+import java.io.*;
 
 public class Main {
 
 	public static String nome1, nome2;
 	public static boolean single = true;
+	public static int disputateSingle = 0;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner in = null;
 		boolean continua = true;
 		boolean fatto;
 		int selettore = 0;
-		int disputateSingle = 0;
 		int disputateMulti = 0;
 		double percX = 0;
 		double percO = 0;
@@ -20,15 +21,17 @@ public class Main {
 		double percPerseSingle = 0;
 		double percPariSingle = 0;
 		double percPariMulti = 0;
+		Save s = new Save();
 			
 		while(continua) {
 			fatto = false;
 			while(!fatto) {
-				System.out.println("Choose what you want to do (5 or more to exit): ");
+				System.out.println("Choose what you want to do (6 or more to exit): ");
 				System.out.println("(1) Singleplayer ");
 				System.out.println("(2) Multiplayer ");
 				System.out.println("(3) View results ");
-				System.out.println("(4) Help ");
+				System.out.println("(4) Achivements (only for single player) ");
+				System.out.println("(5) Help ");
 				try {
 					in = new Scanner(System.in);
 					selettore = in.nextInt();
@@ -53,6 +56,7 @@ public class Main {
 					Clear.clear();
 					gs.play();
 					disputateSingle++;
+					Save.save(nome1);
 					break;
 				case 2:
 					single = false;
@@ -112,6 +116,14 @@ public class Main {
 					System.out.println();
 					break;
 				case 4:
+					Clear.clear();
+					
+					System.out.println(".:ACHIEVEMENTS:. ");
+					System.out.println();
+					
+					//System.out.println("Player " +
+					break;
+				case 5:
 					Clear.clear();
 					System.out.println(".:HOW TO PLAY:. ");
 					System.out.println("The target of the game is to do a 'tris'.");
