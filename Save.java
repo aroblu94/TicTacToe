@@ -8,7 +8,7 @@ public class Save {
 	private static File f;
 	private static FileWriter fw;
 	private static FileReader fr;
-	private static BufferedReader br;
+	private static Scanner br;
 	private static BufferedWriter bw;
 	private static Scanner token;
 	private static boolean append;
@@ -28,11 +28,11 @@ public class Save {
 		try {
 			fw = new FileWriter("saves.txt", append);
 			fr = new FileReader("saves.txt");
-			br = new BufferedReader(fr);
+			br = new Scanner(fr);
 			bw = new BufferedWriter(fw);
-			String line = br.readLine();
-			while(line != null && line != "") {
-				token = new Scanner(line);
+			//String line = br.readLine();
+			while(br.hasNextLine()) {//line != null && line != "") {
+				token = new Scanner(br.nextLine());
 				token.useDelimiter("-");
 				if(token.next().equals(n)) {
 					presente = true;

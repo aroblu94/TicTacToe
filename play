@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Creating bin directory if not presen yet..."
-mkdir bin
+mkdir -p bin
 cd bin
 echo "Removing old .class files, if any..."
 rm -rf *.class
