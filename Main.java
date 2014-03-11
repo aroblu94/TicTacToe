@@ -48,11 +48,9 @@ public class Main {
 					Clear.clear();
 					System.out.println("Enter player's name ");
 					nome1 = in.next();
-					//System.out.println();
 					GiocoSingle gs = new GiocoSingle();
 					System.out.println();
 					Clear.clear();
-					//System.out.println();
 					gs.play();
 					disputateSingle++;
 					break;
@@ -61,14 +59,11 @@ public class Main {
 					Clear.clear();
 					System.out.println("Enter first player's name (X) ");
 					nome1 = in.next();
-					//System.out.println();
 					Clear.clear();
 					System.out.println("Enter second player's name (Y) ");
 					nome2 = in.next();
-					//System.out.println();
 					Clear.clear();
 					GiocoMulti gm = new GiocoMulti();
-					//System.out.println();
 					Clear.clear();
 					gm.play();
 					disputateMulti++;
@@ -120,8 +115,7 @@ public class Main {
 					Clear.clear();
 					System.out.println(".:HOW TO PLAY:. ");
 					System.out.println("The target of the game is to do a 'tris'.");
-					System.out.println("A 'tris' is when you put 3 times the same symbol (X or O)");
-					System.out.println("in row, column or diagonal. ");
+					System.out.println("If you put 3 times the same symbol (X or O) in row, \ncolumn or diagonal you've done a 'tris'.");
 					System.out.println();
 					System.out.println("The input is in the format 'x,y': ");
 					System.out.println();
@@ -132,13 +126,11 @@ public class Main {
 					System.exit(0);
 					break;
 			}
-			//System.out.println();
-			System.out.println("Want to play again? (y/n) ");
+			System.out.println("Would you do something else? (y/n) ");
 			if(in.next().toUpperCase().equals("Y"))
 				continua = true;
 			else
 				continua = false;
-			//System.out.println();
 			Clear.clear();
 		}
 	}

@@ -68,8 +68,11 @@ public class GiocoSingle {
 				System.out.println();
 
 				if((counter != 9) && (!board.getWinner())) {
-					System.out.println("Computer plays. ");
-					String go = in.next();
+					System.out.println("Computer plays... ");
+					try {
+						Thread.sleep(2000);
+					}
+					catch(InterruptedException e) {}
 					fatto = false;
 					while(!fatto) {
 						//Can computer win?
