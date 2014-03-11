@@ -21,8 +21,14 @@ public class Main {
 		double percPerseSingle = 0;
 		double percPariSingle = 0;
 		double percPariMulti = 0;
-		Save s = new Save();
-			
+		
+		try {
+			FileWriter fw = new FileWriter("saves.txt");
+		}
+		catch(FileNotFoundException e) {
+			Save s = new Save();
+		}
+		
 		while(continua) {
 			fatto = false;
 			while(!fatto) {

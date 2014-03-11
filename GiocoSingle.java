@@ -4,7 +4,7 @@ public class GiocoSingle {
 
 	//CAMPI
 	private final boolean debug = false;
-	private Board board;
+	static Board board;
 	private String player1 = "X";
 	private String player2 = "O";
 	private static int counter;
@@ -316,7 +316,7 @@ public class GiocoSingle {
 		counter--;
 	}
 
-	public Board getBoard() {
+	public static Board getBoard() {
 		return board;
 	}
 

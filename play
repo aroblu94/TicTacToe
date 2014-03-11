@@ -1,8 +1,11 @@
 #!/bin/bash
 
-echo "Removing bin dir if any and re-creating it..."
-rm -rf bin
+echo "Creating bin directory if not presen yet..."
 mkdir bin
+cd bin
+echo "Removing old .class files, if any..."
+rm -rf *.class
+cd ..
 
 echo "Compiling into bin dir..."
 javac -d bin Main.java
@@ -11,7 +14,7 @@ echo "Game will now start"
 clear
 cd bin
 java Main
+rm -rf *.class
 cd ..
-rm -rf bin
 
 clear
