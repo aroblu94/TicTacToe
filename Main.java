@@ -7,6 +7,7 @@ public class Main {
 	public static String nome1, nome2;
 	public static boolean single = true;
 	public static int disputateSingle = 0;
+	public static final boolean debug = false;
 
 	public static void main(String[] args) throws IOException {
 		Scanner in = null;
@@ -21,22 +22,23 @@ public class Main {
 		double percPerseSingle = 0;
 		double percPariSingle = 0;
 		double percPariMulti = 0;
+		Vector<String> giocatori = new Vector<String>();
 		
-		try {
-			FileWriter fw = new FileWriter("saves.txt");
-		}
-		catch(FileNotFoundException e) {
-			Save s = new Save();
-		}
+		File f = new File("saves.txt");
+		if(!f.exists())
+			Save.newFile();
 		
+		FileReader fr = new FileReader("saves.txt");
+		BufferedReader br = new BufferedReader(fr);
+
 		while(continua) {
 			fatto = false;
 			while(!fatto) {
 				System.out.println("Choose what you want to do (6 or more to exit): ");
 				System.out.println("(1) Singleplayer ");
 				System.out.println("(2) Multiplayer ");
-				System.out.println("(3) View results ");
-				System.out.println("(4) Achivements (only for single player) ");
+				System.out.println("(3) View results (Singleplayer)");
+				System.out.println("(4) View results (Multiplayer) ");
 				System.out.println("(5) Help ");
 				try {
 					in = new Scanner(System.in);
@@ -80,6 +82,25 @@ public class Main {
 					break;
 				case 3:
 					Clear.clear();
+					Scanner token = new Scanner(br.readLine());
+					token.useDelimiter("-");
+					System.out.println(".:RESULTS:. ");
+					System.out.println("(Singleplayer)");
+					System.out.println();
+					while(br.readLine() != null) {
+						String nome = token.next();
+						int vinte = Integer.parseInt(token.next());
+						int perse = Integer.parseInt(token.next());
+						int disputate = Integer.parseInt(token.next());
+						System.out.println("Player " + nome + ":");
+						System.out.println("  Wons: " + vinte + " (" + (double)vinte/(double)disputate*100 + "%) ");
+						System.out.println("  Losts: " + perse + " (" + (double)perse/(double)disputate*100 + "%) ");
+						System.out.println("  Ties: " + (disputate-(vinte+perse)) + " (" + (double)(disputate-(vinte+perse))/(double)disputate*100 + "%) ");
+						System.out.println();
+					}
+					break;
+				case 4:
+					Clear.clear();
 					int vinteX = GiocoMulti.vinteX();
 					int vinteO = GiocoMulti.vinteO();
 					int pariMulti = GiocoMulti.pari();
@@ -93,41 +114,13 @@ public class Main {
 						percO = 0;
 						percPariMulti = 0;
 					}
-
-					int vinteSingle = GiocoSingle.vinteX();
-					int perseSingle = GiocoSingle.vinteO();
-					int pariSingle = GiocoSingle.pari();
-					if(disputateSingle != 0) {
-						percVinteSingle = (double)vinteSingle / (double)disputateSingle * 100;
-						percPerseSingle = (double)perseSingle / (double)disputateSingle * 100;
-						percPariSingle = (double)pariSingle / (double)disputateSingle * 100;
-					}
-					else {
-						percVinteSingle = 0;
-						percPerseSingle = 0;
-						percPariSingle = 0;
-					}
-
 					System.out.println(".:RESULTS:.");
+					System.out.println("(Multiplayer)");
 					System.out.println();
-					System.out.println("Singleplayer: ");
-					System.out.println("Wons: " + vinteSingle + " (" + percVinteSingle + "%) ");
-					System.out.println("Losts: " + perseSingle + " (" + percPerseSingle + "%) ");
-					System.out.println("Ties: " + pariSingle + " (" + percPariSingle + "%) ");
-					System.out.println();
-					System.out.println("Multiplayer: ");
 					System.out.println("Wons by " + nome1 + ": " + vinteX + " (" + percX + "%) ");
 					System.out.println("Wons by " + nome2 + ": " + vinteO + " (" + percO + "%) ");
 					System.out.println("Ties: " + pariMulti + " (" + percPariMulti + "%) ");
 					System.out.println();
-					break;
-				case 4:
-					Clear.clear();
-					
-					System.out.println(".:ACHIEVEMENTS:. ");
-					System.out.println();
-					
-					//System.out.println("Player " +
 					break;
 				case 5:
 					Clear.clear();

@@ -100,7 +100,6 @@ public class GiocoMulti {
 				}
 				else {
 					if((counter == 9) && (!board.getWinner())) {
-						System.out.println();
 						System.out.println("IT'S A TIE!");
 						pari++;
 					}
@@ -121,7 +120,6 @@ public class GiocoMulti {
 			}
 			else {
 				if((counter == 9) && (!board.getWinner())) {
-					System.out.println();
 					System.out.println("IT'S A TIE!");
 					pari++;
 				}

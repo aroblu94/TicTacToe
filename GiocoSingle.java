@@ -267,7 +267,6 @@ public class GiocoSingle {
 				
 				else {
 					if((counter == 9) && (!board.getWinner())) {
-						System.out.println();
 						System.out.println("IT'S A TIE!");
 						pari++;
 					}
@@ -288,7 +287,6 @@ public class GiocoSingle {
 
 			else {
 				if((counter == 9) && (!board.getWinner())) {
-					System.out.println();
 					System.out.println("IT'S A TIE!");
 					pari++;
 				}

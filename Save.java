@@ -8,14 +8,14 @@ public class Save {
 	private static File f;
 	private static FileWriter fw;
 	private static FileReader fr;
-	private static Scanner br;
+	private static BufferedReader br;
 	private static BufferedWriter bw;
 	private static Scanner token;
 	private static boolean append;
 	private static boolean presente;
 	
-	public Save() {
-		f = new File("saves.txt");
+	public static void newFile() throws IOException {
+		fw = new FileWriter("saves.txt", append);
 	}
 	
 	//METODI
@@ -26,13 +26,10 @@ public class Save {
 		int perse = 0;
 		int disputate = 0;
 		try {
-			fw = new FileWriter("saves.txt", append);
 			fr = new FileReader("saves.txt");
-			br = new Scanner(fr);
-			bw = new BufferedWriter(fw);
-			//String line = br.readLine();
-			while(br.hasNextLine()) {//line != null && line != "") {
-				token = new Scanner(br.nextLine());
+			br = new BufferedReader(fr);
+			while(br.readLine() != null) {
+				token = new Scanner(br.readLine());
 				token.useDelimiter("-");
 				if(token.next().equals(n)) {
 					presente = true;
