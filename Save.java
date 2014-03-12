@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Save {
+public abstract class Save {
 	
 	//CAMPI
 	private final boolean debug = true;
@@ -10,7 +10,7 @@ public class Save {
 	private static FileReader fr;
 	private static BufferedReader br;
 	private static BufferedWriter bw;
-	private static Scanner token;
+	private static StringTokenizer token;
 	private static boolean append;
 	private static boolean presente;
 	
@@ -28,10 +28,9 @@ public class Save {
 		try {
 			fr = new FileReader("saves.txt");
 			br = new BufferedReader(fr);
-			while(br.readLine() != null) {
-				token = new Scanner(br.readLine());
-				token.useDelimiter("-");
-				if(token.next().equals(n)) {
+			while(br.readLine() != "") {
+				token = new StringTokenizer(br.readLine(), "-");
+				if(token.nextToken().equals(n)) {
 					presente = true;
 					break;
 				}
@@ -52,18 +51,18 @@ public class Save {
 			else {
 				append = false;
 				if(GiocoSingle.board.getWinnerX()) {
-					vinte = 1 + Integer.parseInt(token.next());
-					perse = 0 + Integer.parseInt(token.next());
+					vinte = 1 + Integer.parseInt(token.nextToken());
+					perse = 0 + Integer.parseInt(token.nextToken());
 				}
 				else if(GiocoSingle.board.getWinnerO()) {
-					vinte = 0 + Integer.parseInt(token.next());
-					perse = 1 + Integer.parseInt(token.next());
+					vinte = 0 + Integer.parseInt(token.nextToken());
+					perse = 1 + Integer.parseInt(token.nextToken());
 				}
-				disputate = 1 + Integer.parseInt(token.next());
+				disputate = 1 + Integer.parseInt(token.nextToken());
 				fw.write(n + "-" + vinte + "-" + perse + "-" + disputate);
 			}
-			fr.close();
 			//fw.flush();
+			fr.close();
 			fw.close();
 		}
 		catch(IOException e) {}

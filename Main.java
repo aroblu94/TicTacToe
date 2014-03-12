@@ -22,7 +22,6 @@ public class Main {
 		double percPerseSingle = 0;
 		double percPariSingle = 0;
 		double percPariMulti = 0;
-		Vector<String> giocatori = new Vector<String>();
 		
 		File f = new File("saves.txt");
 		if(!f.exists())
@@ -82,16 +81,15 @@ public class Main {
 					break;
 				case 3:
 					Clear.clear();
-					Scanner token = new Scanner(br.readLine());
-					token.useDelimiter("-");
+					StringTokenizer token = new StringTokenizer(br.readLine(), "-");
 					System.out.println(".:RESULTS:. ");
 					System.out.println("(Singleplayer)");
 					System.out.println();
 					while(br.readLine() != null) {
-						String nome = token.next();
-						int vinte = Integer.parseInt(token.next());
-						int perse = Integer.parseInt(token.next());
-						int disputate = Integer.parseInt(token.next());
+						String nome = token.nextToken();
+						int vinte = Integer.parseInt(token.nextToken());
+						int perse = Integer.parseInt(token.nextToken());
+						int disputate = Integer.parseInt(token.nextToken());
 						System.out.println("Player " + nome + ":");
 						System.out.println("  Wons: " + vinte + " (" + (double)vinte/(double)disputate*100 + "%) ");
 						System.out.println("  Losts: " + perse + " (" + (double)perse/(double)disputate*100 + "%) ");
